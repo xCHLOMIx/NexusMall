@@ -1,0 +1,81 @@
+@font-face {
+    font-family: 'Dem';
+    src: url('../Fonts/Dosis/Dosis-VariableFont_wght.ttf');
+    }  
+*{
+    font-family: Dem;
+}
+body{
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.back{
+    background-color: #0a2351;
+    background-image: url(../Images/Exclusion\ 1.png);
+    background-repeat: no-repeat;
+    background-position-x: 80%;
+    background-position-y: 50%;
+    background-size: 15%;
+    height: 60%;
+    width: 45%;
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    border: 0.1px solid #0a2351;
+    overflow: hidden;
+    box-shadow: 7px 7px 15px gray;
+}
+.form{
+    background-color: white;
+    height: 97%;
+    margin-left: 1%;
+    border-radius: 10px;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+form{
+    width: 70%;
+    margin-top: -15%;
+    overflow: hidden;
+}
+input{
+    height: 30px;
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid black;
+    margin-bottom: 5%;
+    outline: none;
+    padding: 1%;
+    font-size: 0.7rem;
+    background-color: transparent;
+}
+button {
+    width: 100%;
+    background-color: red;
+    border: 0;
+    height: 35px;
+    border-radius: 10px;
+    cursor: pointer;
+    color: white;
+    transition: 0.3s ease;
+    font-size: 0.7rem;
+}
+button:hover {
+    background-color: #db3c2e;
+}
+a{
+    font-size: x-small;
+    color: #0a2351;
+    text-decoration: none;
+    transition: .4s ease;
+}
+a:hover{
+    text-decoration: underline;
+}
