@@ -15,10 +15,10 @@ mongoose.connect('mongodb://127.0.0.1:27017/NexusMall')
         console.log(err)
     })
 app.use(express.static('public'))
+app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 app.set('view engine', 'ejs')
 app.get('/', (req, res) => {
-    // you did not give me the home page
     res.render('home')
 })
 app.use(authRoutes)
