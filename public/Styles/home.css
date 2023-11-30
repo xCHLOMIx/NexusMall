@@ -88,10 +88,19 @@ img#other:hover{
 .img img{
     width: 70%;
 }
-h1{
+h1#head{
+    position: absolute;
+    top: 3%;
+    left: 40%;
+    font-size: 4rem;
+    color: white;
+    font-weight: bolder;
+    -webkit-text-stroke: 1px #000;   
+}
+.text h1{
     color: #0a2351;
 }
-b{
+.text b{
     color: #FF4433;
 }
 button{
