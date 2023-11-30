@@ -7,7 +7,6 @@ const login_get = (req, res) => {
     res.render('login')
 }
 const signup_post = async (req, res) => { 
-    const {username, firstname, lastname, email, password } = req.body
     const user = User.create(req.body)
     res.status(201).json(req.body) 
 }
