@@ -7,7 +7,7 @@ const productRoutes = require('./routes/productRoutes')
 
 // conecting to the database
 
-mongoose.connect('mongodb://127.0.0.1:27017/nexusmall')
+mongoose.connect('mongodb://127.0.0.1:27017/NexusMall')
     .then((res) => {
         app.listen(3000)
     })

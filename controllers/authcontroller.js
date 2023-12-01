@@ -17,7 +17,7 @@ const signup_get = (req, res) => {
 }
 const login_get = (req, res) => {
     res.render('login')
-}
+}    
 const signup_post = async (req, res) => {
     try {
         const user = await User.create(req.body)
@@ -25,7 +25,6 @@ const signup_post = async (req, res) => {
     } catch (error) {
         handleErrors(error)
     }
-        
 }
 const login_post = (req, res) => {
     const { username, password } = req.body
