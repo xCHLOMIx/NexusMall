@@ -105,8 +105,8 @@ h1#head{
 }
 button{
     position: absolute;
-    top: 89%;
-    left: 83%;
+    bottom: 2%;
+    right: 2%;
     background-color: #FF4433;
     border: none;
     height: 45px;
