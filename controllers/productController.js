@@ -6,9 +6,7 @@ const upload = multer({ storage: storage });
 const product_get = (req, res) => {
     res.render('record')
 }
-const products = () => {
-    
-}
+
 const product_post = async (req, res) => {
     const { productName, unitPrice, productQuantity } = req.body;
 
@@ -29,8 +27,11 @@ const product_post = async (req, res) => {
         res.status(500).send('Internal Server Error');
     }
 }
+const orders = async (req, res) => {
+    res.render('orders')
+}
 module.exports = {
     product_get,
     product_post,
-    products
+    orders
 }

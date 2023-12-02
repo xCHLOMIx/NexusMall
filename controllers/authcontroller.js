@@ -17,6 +17,9 @@ const signup_get = (req, res) => {
 }
 const login_get = (req, res) => {
     res.render('login')
+}
+const login_admin = (req, res) => {
+    res.render('admin')
 }    
 const signup_post = async (req, res) => {
     try {
@@ -35,5 +38,6 @@ module.exports = {
     signup_get,
     signup_post,
     login_get,
-    login_post
+    login_post,
+    login_admin
 }
