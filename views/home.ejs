@@ -18,33 +18,20 @@
     </nav>
     <center><h1 id="head">NexusMall</h1></center>
     <div class="content">
-        <div class="showcase">
-            <div class="img"><img src="Images/keyboard.png" alt=""></div>
-            <div class="text">
-                <h1>Keyboard</h1><br>
-                <b>PRICE:</b>
-                <p>$130</p>
-                <button><img src="Icons/cart.png" alt="Order NOW!"></button>
+        
+        
+    <% for (let i = 0; i < 3; i++) { %>
+            <div class="showcase">        
+                <div class="img"><img src="data:<%= product[i].image.contentType %>;base64,<%= product[i].image.data.toString('base64') %>" alt=""></div>
+                <div class="text">
+                    <h1><%= product[i].productName  %></h1><br>
+                    <b>PRICE:</b>
+                    <p>$<%= product[i].unitPrice %></p>
+                    <button><img src="Icons/cart.png" alt="Order NOW!"></button>
+                </div>
             </div>
-        </div>
-        <div class="showcase">
-            <div class="img"><img src="Images/keyboard.png" alt=""></div>
-            <div class="text">
-                <h1>Keyboard</h1><br>
-                <b>PRICE:</b>
-                <p>$130</p>
-                <button><img src="Icons/cart.png" alt="Order NOW!"></button>
-            </div>
-        </div>
-        <div class="showcase">
-            <div class="img"><img src="Images/keyboard.png" alt=""></div>
-            <div class="text">
-                <h1>Keyboard</h1><br>
-                <b>PRICE:</b>
-                <p>$130</p>
-                <button><img src="Icons/cart.png" alt="Order NOW!"></button>
-            </div>
-        </div>
+    <%  } %>
+        
     </div>
 </body>
 </html>

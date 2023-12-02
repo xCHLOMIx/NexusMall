@@ -11,11 +11,11 @@ const productSchema = new Schema({
         required: true,
     },
     unitPrice: {
-        type: String,
+        type: Number,
         required: true,
     },
     productQuantity: {
-        type: String,
+        type: Number,
         required: true
     }
 }, { timestamps: true });
