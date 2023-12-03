@@ -10,4 +10,7 @@ router.post('/save', upload.single('productImage'), productController.product_po
 router.get('/orders', productController.orders)
 router.get('/product-details', productController.product_details)
 
+
+router.use(productController.error)
+
 module.exports = router;
