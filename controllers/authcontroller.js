@@ -34,7 +34,10 @@ const signup_get = (req, res) => {
 }
 const login_get = (req, res) => {
     res.render('login')
-}    
+}
+const login_admin_get = (req, res) => {
+    res.render('admin')
+}   
 const signup_post = async (req, res) => {
     try {
         const user = await User.create(req.body)
@@ -50,6 +53,7 @@ const signup_post = async (req, res) => {
         console.log(error)
     }
 }
+
 const login_post = async (req, res) => {
     const { email, password } = req.body
     try {
@@ -60,6 +64,20 @@ const login_post = async (req, res) => {
             httpOnly:true
         })
         res.status(200).send({user:user._id})
+    } catch (error) {
+        res.status(400).send(handleErrors(error));
+    }
+}
+const login_admin_post = async (req, res) => {
+    const { email, password } = req.body
+    try {
+        const admin = await Admin.login(email, password);
+        const token = createToken(admin._id)
+        res.cookie('jwt', token, {
+            maxAge: maxAge * 1000,
+            httpOnly:true
+        })
+        res.status(200).send({admin:admin._id})
     } catch (error) {
         res.status(400).send(handleErrors(error));
     }
@@ -76,5 +94,7 @@ module.exports = {
     signup_post,
     login_get,
     logout_get,
-    login_post
+    login_post,
+    login_admin_get,
+    login_admin_post
 }
