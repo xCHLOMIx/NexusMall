@@ -30,8 +30,12 @@ const product_post = async (req, res) => {
 const orders = async (req, res) => {
     res.render('orders')
 }
+const product_details = async (req, res) =>{
+    res.render('details')
+}
 module.exports = {
     product_get,
     product_post,
-    orders
+    orders,
+    product_details
 }
