@@ -10,14 +10,17 @@
    <div class="back">
         <div class="form">
             <form action="">
-                <center><h1>PROJECT</h1></center>
-                <input type="text" placeholder="Username" name="username"><br>
-                <input type="password" placeholder="Password" name="password"><br>
-                <button>Sign In</button>
-                <a href="/signup"><font>Don't have an account? Sign Up.</font></a>
-                <a href="/admin"><button type="button" id="admin"><img src="Icons/admin.png"></button></a>
+                <div class="content">
+                    <center><h1>User Login</h1></center>
+                    <input type="text" placeholder="Username" name="username"><br>
+                    <input type="password" placeholder="Password" name="password"><br>
+                    <button>Sign In</button>
+                    <a href="/signup"><font>Don't have an account? Sign Up.</font></a>
+                    <a href="/admin"><button type="button" id="admin"><img src="Icons/admin.png"></button></a>
+                </div>
             </form>
         </div>
+   </div> 
         <script>
                 const form = document.querySelector('form')
                 form.addEventListener('submit',async (e)=>{
