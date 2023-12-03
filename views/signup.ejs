@@ -11,25 +11,77 @@
     <div class="back">
         <div class="form">
             <img src="../Icons/left-arrow.png" id="img">
-            <!-- Nigga who you used 'sighup' -->
+
             <form action="/signup" method='post'>
                 <section id="Form1">
                     <center><h1>NexusMall</h1></center>
                     <input type="text" placeholder="Username" name="username" autocomplete="off" required><br>
+                    <p class="error usernameError"></p>
                     <input type="text" placeholder="First Name" name="firstname" autocomplete="off" required><br>
+                    <p class="error firstnameError"></p>
                     <input type="text" placeholder="Last Name(s)" name="lastname" autocomplete="off" required><br>
+                    <p class="error lastnameError"></p>
                     <button type="button" id="Next1">Next</button>
                     <a href="/login"><font>Already got an account? Sign In.</font></a>
                 </section>
                 <section id="Form2">
                     <center><h1>NexusMall</h1></center>
                     <input type="email" placeholder="Your Email" name="email" autocomplete="off" required><br>
+                    <p class="error emailError"></p>
                     <input type="password" placeholder="Password" name="password" autocomplete="off" required><br>
+                    <p class="error passwordError"></p>
                     <input type="password" placeholder="Confirm Password" autocomplete="off" required><br>
+                    <p class="error Cpassword">error has happened</p>
                     <button type="submit" id="Next2">Sign Up</button>
                 </section>
             </form>
          </div>
     </div>
+    <script>
+
+        const form = document.querySelector('form')
+        form.addEventListener('submit',async (e)=>{
+            e.preventDefault();
+            const emailError = document.querySelector('.emailError')
+            const usernameError = document.querySelector('.usernameError')
+            const passwordError = document.querySelector('.passwordError')
+                
+            //  reset errors
+            emailError.textContent = '';
+            passwordError.textContent = '';
+            usernameError.textContent = '';
+            //getting values
+            const username = form.username.value
+            const firstname = form.firstname.value
+            const lastname = form.lastname.value
+            const email = form.email.value
+            const password = form.password.value
+            try {
+                
+                const res = await fetch('/signup',{
+                    method:'POST',
+                    body: JSON.stringify({username,firstname,lastname, email, password}),
+                    headers: {'content-Type': 'application/json'},
+                });
+                const data = await res.json()
+                if (data) {
+                    if (usernameError.textContent = data.username) {
+                        Form1.style.left = "15%";
+                        Form2.style.left = "-100%";
+                        img.style.opacity = "0%";
+                    }
+                    emailError.textContent = data.email
+                    passwordError.textContent = data.password
+                }
+                if (data.user) {
+                    location.assign = '/';
+                }
+                console.log(data)
+            } catch (err) {
+                console.log(err);
+            }
+            
+        })
+    </script>
  </body>
 </html>
