@@ -22,6 +22,27 @@ const requireAuth = ( req, res, next ) => {
         res.redirect('/login')
     }
 }
+const requireAdminAuth = ( req, res, next ) => {
+    const token = req.cookies.jwt_admin
+
+    // check if jwt exists
+    if ( token ) {
+        jwt.verify(token, 'mugisha and chlomi created nexusmall', ( err, decodeToken ) => {
+            if (err) {
+               
+                res.redirect('/login')
+                console.log(err);
+            }
+            else {
+                console.log(decodeToken);
+                next()
+            }
+        })
+    }
+    else {
+        res.redirect('/login')
+    }
+}
 
 const checkUser = (req, res, next) => {
     const token = req.cookies.jwt;

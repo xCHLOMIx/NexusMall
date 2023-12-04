@@ -16,10 +16,6 @@ body{
     align-items: center;
     overflow: hidden;
 }
-.error {
-    color: red;
-    font-size: 11px;
-}
 .back{
     background-color: #0a2351;
     background-image: url(../Images/Exclusion\ 1.png);

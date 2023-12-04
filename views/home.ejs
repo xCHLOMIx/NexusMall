@@ -39,7 +39,9 @@
                     <h1><%= product[i].productName  %></h1><br>
                     <b>PRICE:</b>
                     <p>$<%= product[i].unitPrice %></p>
-                    <button><img src="Icons/cart.png" alt="Order NOW!"></button>
+                    <a href="/<%- product[i]._id  %>">
+                        <button><img src="Icons/cart.png" alt="Order NOW!"></button>
+                    </a>
                 </div>
             </div>
     <%  } %>
