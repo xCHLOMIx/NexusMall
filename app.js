@@ -15,7 +15,7 @@ mongoose.connect('mongodb://127.0.0.1:27017/nexusmall')
         app.listen(3000)
     })
     .catch((err) => {
-        console.log(err)
+        console.log('not connecting to the database')
     })
 //middlewares
 app.use(cookieParser());

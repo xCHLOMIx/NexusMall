@@ -19,13 +19,13 @@
     <div class="content">
         <div class="product">
             <div class="image">
-                <img src="keyboard.png" alt="">
+                <img src="data:<%= product.image.contentType %>;base64,<%= product.image.data.toString('base64') %>" alt="">
             </div>
             <div class="txt">
-                <h1>KEYBOARD</h1><br><br> 
+                <h1><%= product.productName %></h1><br><br>
                 <b>Price:</b><br>
-                <p>$129</p> 
-                <b>30 Left in Stock</b>
+                <p>$<%= product.unitPrice  %></p>
+                <b><%= product.productQuantity %> Left in Stock</b>
                 <button id="confirm">Order Now</button>
             </div>
         </div>

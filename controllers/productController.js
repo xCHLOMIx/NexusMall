@@ -23,15 +23,18 @@ const product_post = async (req, res) => {
         await product.save();
         res.redirect('/record');
     } catch (err) {
-        console.error(err);
-        res.status(500).send('Internal Server Error');
+        console.log('error');
+        res.status(400).send('Internal Server Error');
     }
 }
-const orders = async (req, res) => {
+const orders = (req, res) => {
+
     res.render('orders')
 }
-const product_details = async (req, res) =>{
-    res.render('details')
+const product_details = async (req, res) => {
+    const id = req.params.id
+    const product_details = await Product.findById(id)
+    res.render('details',{ product:product_details })
 }
 const error = async (req,res) =>{
     res.render('404')

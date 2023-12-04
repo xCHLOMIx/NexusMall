@@ -9,13 +9,15 @@
 <body>
    <div class="back">
         <div class="form">
-            <form action="">
+
+            <form action="/login" method="post">                              
                 <div class="content">
-                    <center><h1>User Login</h1></center>
+                    <center><h1>PROJECT</h1></center>
                     <input type="text" placeholder="Email" name="email"><br>
                     <p class="error emailError"></p>
                     <input type="password" placeholder="Password" name="password"><br>
                     <p class="error passwordError"></p>
+
                     <button>Sign In</button>
                     <a href="/signup"><font>Don't have an account? Sign Up.</font></a>
                     <a href="/admin"><button type="button" id="admin"><img src="Icons/admin.png"></button></a>
@@ -23,43 +25,46 @@
             </form>
         </div>
    </div> 
-        <script>
-                const form = document.querySelector('form')
-                form.addEventListener('submit',async (e)=>{
-                e.preventDefault();
+   <script>
+     const form = document.querySelector('form')
+     form.addEventListener('submit', async (e) => {
+       e.preventDefault();
 
-                const emailError = document.querySelector('.emailError')
-                const passwordError = document.querySelector('.passwordError')
+       const emailError = document.querySelector('.emailError')
+       const passwordError = document.querySelector('.passwordError')
 
-                // reset errors
-                passwordError.textContent = '';
-                emailError.textContent = '';
-                //getting values
-                const email = form.email.value
-                const password = form.password.value
-                try {
+       // reset errors
+       passwordError.textContent = '';
+       emailError.textContent = '';
+       //getting values
+       const email = form.email.value
+       const password = form.password.value
+       try {
 
-                    const res = await fetch('/login',{
-                        method:'POST',
-                        body: JSON.stringify({email, password}),
-                        headers: {'content-Type': 'application/json'},
-                    });
-                    const data = await res.json()
-                    if (data) {
-                        emailError.textContent = data.email
-                        passwordError.textContent = data.password
-                        console.log(data);
-                    }
-                    if (data.user) {
-                        window.location.assign('/')
-                    }
-                } 
-                catch (err) {
-                    console.log(err);
-                }
+         const res = await fetch('/login', {
+           method: 'POST',
+           body: JSON.stringify({
+             email,
+             password
+           }),
+           headers: {
+             'content-Type': 'application/json'
+           },
+         });
+         const data = await res.json()
+         if (data) {
+           emailError.textContent = data.email
+           passwordError.textContent = data.password
+           console.log(data);
+         }
+         if (data.user) {
+           window.location.assign('/')
+         }
+       } catch (err) {
+         console.log(err);
+       }
 
-                })
-        </script>
-   </div> 
+     })
+   </script>
 </body>
 </html>
