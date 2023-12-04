@@ -36,9 +36,13 @@ const product_details = async (req, res) => {
     const product_details = await Product.findById(id)
     res.render('details',{ product:product_details })
 }
+const error = async (req,res) =>{
+    res.render('404')
+}
 module.exports = {
     product_get,
     product_post,
     orders,
-    product_details
+    product_details,
+    error
 }
