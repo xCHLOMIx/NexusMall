@@ -8,11 +8,17 @@ const authRoutes = require('./routes/authRoutes')
 const productRoutes = require('./routes/productRoutes')
 const { requireAuth, checkUser } = require('./middleware/authMiddleware')
 
+// Import necessary modules and set up configurations
+
+process.on('unhandledRejection', (reason, promise) => {
+    console.error('Unhandled Rejection at:', promise, 'reason:', reason);
+    // Handle the error, or log it for further investigation
+});
 // conecting to the database
 
 mongoose.connect('mongodb://127.0.0.1:27017/nexusmall')
     .then((res) => {
-        app.listen(3000)
+        app.listen(1234)
     })
     .catch((err) => {
         console.log('not connecting to the database')
