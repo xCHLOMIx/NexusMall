@@ -10,7 +10,7 @@ const { requireAuth, checkUser } = require('./middleware/authMiddleware')
 
 // conecting to the database
 
-mongoose.connect('mongodb://127.0.0.1:27017/nexusmall')
+mongoose.connect('mongodb://localhost/nexusmall')
     .then((res) => {
         app.listen(3000)
     })
@@ -24,7 +24,7 @@ app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 
 app.set('view engine', 'ejs')
-app.get('*',checkUser)
+app.get('*', checkUser)
 app.get('/', requireAuth, (req, res) => {
     Product.find()
         .then((result) => {

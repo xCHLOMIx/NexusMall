@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const {product_details,product_get,product_post,orders} = require('../controllers/productController')
+const {product_details,product_get,product_post,orders,error} = require('../controllers/productController')
 const multer = require('multer');
 const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
@@ -11,6 +11,6 @@ router.get('/orders', orders)
 router.get('/:id', product_details)
 
 
-router.use(productController.error)
+router.use(error)
 
 module.exports = router;
