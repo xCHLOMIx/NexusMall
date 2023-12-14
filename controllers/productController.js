@@ -10,7 +10,7 @@ const product_get = (req, res) => {
 }
 
 const product_post = async (req, res) => {
-    const { productName, unitPrice, productQuantity } = req.body;
+    const { productName, unitPrice, productQuantity, productDescription } = req.body;
 
     const product = new Product({
         image: {
@@ -20,12 +20,13 @@ const product_post = async (req, res) => {
         productName,
         unitPrice,
         productQuantity,
+        productDescription
     });
     try {
         await product.save();
         res.redirect('/record');
     } catch (err) {
-        console.log('error');
+        console.log(error);
         res.status(400).send('Internal Server Error');
     }
 }

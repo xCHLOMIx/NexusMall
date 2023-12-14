@@ -18,7 +18,7 @@ process.on('unhandledRejection', (reason, promise) => {
 
 mongoose.connect('mongodb://localhost/nexusmall')
     .then((res) => {
-        app.listen(1234)
+        app.listen(4000)
     })
     .catch((err) => {
         console.log('not connecting to the database')
