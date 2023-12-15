@@ -5,6 +5,7 @@ const morgan = require('morgan')
 const cookieParser = require('cookie-parser')
 const mongoose = require('mongoose')
 const authRoutes = require('./routes/authRoutes')
+const adminRoutes = require('./routes/adminRoutes')
 const productRoutes = require('./routes/productRoutes')
 const { requireAuth, checkUser } = require('./middleware/authMiddleware')
 
@@ -38,6 +39,7 @@ app.get('/',requireAuth, (req, res) => {
         })
 })
 app.use(authRoutes)
+app.use(adminRoutes)
 app.use(productRoutes)
 
 
