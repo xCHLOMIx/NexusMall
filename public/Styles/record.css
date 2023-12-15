@@ -23,7 +23,7 @@ body {
     background-repeat: no-repeat;
     background-position: 80% 50%;
     background-size: 15%;
-    height: 40%;
+    height: 45%;
     width: 40%;
     border: 0.1px solid #0a2351;
     overflow: hidden;
@@ -31,15 +31,14 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    border-radius: 10px;
+    position: relative;
 }
 
 .form {
     background-color: white;
     height: 100%;
     width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 form {
@@ -49,12 +48,17 @@ form {
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative;
 }
-input{
-    height: 30px;
-}
+
 input#b1{
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid black;
+    margin: 6% 0;
+    outline: none;
+    padding: 2%;
+}
+textarea{
     width: 100%;
     border: none;
     border-bottom: 1px solid black;
@@ -65,30 +69,40 @@ input#b1{
 input#names{
     border: none;
     border-bottom: 1px solid black;
-    margin: 6% 0;
+    margin: 6% 0 0 0;
     outline: none;
     padding: 2%;
-    width: 48.5%;
+    width: 49.56%;
 }
 
 button {
-    width: 100%;
-    background-color: #0a2351;
+    width: 7%;
+    background-color: #FF4433;
     border: 0;
     height: 40px;
     cursor: pointer;
     color: white;
     transition: 0.3s ease;
+    border-radius: 10px;
+    position: absolute;
+    bottom: 2%;
+    right: 1%;
 }
 
 button:hover {
-    background-color: #071836;
+    background-color: #db3c2e;
 }
 
+button img{
+    height: auto;
+    width: 50%;
+}
 .other {
     overflow: hidden;
     height: 77.5%;
     width: 60%;
+    margin-top: 5%;
+    padding: 0;
 }
 
 a {
@@ -103,14 +117,17 @@ a:hover {
 }
 
 img {
-    width: 20%;
+    width: 70%;
 }
 
 .file {
     height: 70%;
     width: 30%;
     float: left;
-    margin: 0 2% 0 0;
+    margin: 1.7% 2% 0 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 input#file {
@@ -120,17 +137,20 @@ input#file {
 label {
     cursor: pointer;
     display: flex;
-    height: 80%;
+    height: 89%;
     justify-content: center;
     align-items: center;
-    border: 1px dashed #999;
+    background-color:#0a2351;
+    object-fit: contain;
+    transition: .3s ease;
+    border-radius: 10px;
 }
-
 label:hover {
-    color: #FF4433;
-    border: 1px dashed #FF4433;
+    background-color: #071836;
 }
 h1{
     position: absolute;
-    top: 80%;
+    left: 4%;
+    top: 5%;
+    color: #0a2351;
 }

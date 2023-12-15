@@ -17,9 +17,9 @@ process.on('unhandledRejection', (reason, promise) => {
 });
 // conecting to the database
 
-mongoose.connect('mongodb://127.0.0.1:27017/nexusmall')
+mongoose.connect('mongodb://localhost/nexusmall')
     .then((res) => {
-        app.listen(1234)
+        app.listen(4000)
     })
     .catch((err) => {
         console.log('not connecting to the database')
@@ -31,8 +31,8 @@ app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 
 app.set('view engine', 'ejs')
-app.get('*',checkUser)
-app.get('/',requireAuth, (req, res) => {
+app.get('*', checkUser)
+app.get('/', requireAuth, (req, res) => {
     Product.find()
         .then((result) => {
             res.render('home',{product: result})

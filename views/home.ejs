@@ -10,28 +10,16 @@
     <nav>
         <div class="logo"><img src="Images/Exclusion 1.png" alt="" id="logo"></div>
         <div class="links">
-                <img src="Icons/home.png" id="home">
-                <img src="Icons/browse.png" id="other">
+                <a href="/"><img src="Icons/home.png" id="home"></a>
+                <a href=""><img src="Icons/browse.png" id="other"></a>
                 <a href="/orders"><img src="Icons/account.png" id="other"></a>
         </div>
         <div class="logout"><a href="/logout"><img src="Icons/logout.png" id="logout"></a></div>
     </nav>
     <center>
         <h1 id="head">NexusMall</h1>
-        <p id="head">
-            Your premier online shopping destination! Discover a world of convenience and 
-            style as we bring you an exclusive selection of cutting-edge electronics, 
-            fashion-forward apparel, and essential home goods.At NexusMall, we pride 
-            ourselves on providing a seamless and secure shopping experience. Enjoy 
-            the ease of navigating our user-friendly platform, and stay ahead of the 
-            trends with our curated collection of top-quality products. Experience the 
-            future of online shopping at NexusMall, where your satisfaction is our priority. 
-            <h2>Happy shopping!</h2>
-        </p>
     </center>
-    <div class="content">
-        
-        
+    <div class="content">  
     <% for (let i = 0; i < 3; i++) { %>
             <div class="showcase">        
                 <div class="img"><img src="data:<%= product[i].image.contentType %>;base64,<%= product[i].image.data.toString('base64') %>" alt=""></div>
@@ -44,8 +32,7 @@
                     </a>
                 </div>
             </div>
-    <%  } %>
-        
+    <%  } %>       
     </div>
 </body>
 </html>

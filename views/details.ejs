@@ -8,11 +8,11 @@
 </head>
 <body>
     <nav>
-        <div class="logo"><img src="Icons/Exclusion 1.png" alt="" id="logo"></div>
+        <div class="logo"><img src="Images/Exclusion 1.png" alt="" id="logo"></div>
         <div class="links">
-                <img src="Icons/home.png" id="home">
-                <img src="Icons/browse.png" id="other">
-                <img src="Icons/account.png" id="other">
+                <a href="/"><img src="Icons/home.png" id="other"></a>
+                <a href=""><img src="Icons/browse.png" id="home"></a>
+                <a href="/orders"><img src="Icons/account.png" id="other"></a>
         </div>
         <div class="logout"><img src="Icons/logout.png" id="logout"></div>
     </nav>
@@ -25,9 +25,11 @@
                 <h1><%= product.productName %></h1><br><br>
                 <b>Price:</b><br>
                 <p>$<%= product.unitPrice  %></p>
-                <b><%= product.productQuantity %> Left in Stock</b>
-                <button id="confirm">Order Now</button>
+                <b><%= product.productQuantity %> Left in Stock</b><br><br>
+                <b>Description:</b>
+                <p><%= product.productDescription %></p>
             </div>
+            <button id="confirm">Order Now</button>
         </div>
         <div class="other">
             <h1>Other Products:</h1>
