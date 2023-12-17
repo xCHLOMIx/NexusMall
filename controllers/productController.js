@@ -61,10 +61,17 @@ const product_details = async (req, res) => {
 const error404 = (req,res)=>{
     res.render('404')
 }
+const products = (req,res) => {
+    Product.find()
+        .then((result) => {
+            res.render('products', {product : result})
+        })
+}
 module.exports = {
     product_get,
     product_post,
     orders,
     product_details,
-    error404
+    error404,
+    products
 }

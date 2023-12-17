@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Styles/products.css">
+    <title>NexusMall</title>
+</head>
+<body>
+    <nav>
+        <div class="logo"><a href="/"><img src="Images/Exclusion 1.png" alt="" id="logo"></div>
+        <div class="links">
+            <a href="/home"><img src="Icons/home.png" id="other"></a>
+            <a href="/products"><img src="Icons/browse.png" id="home"></a>
+            <a href="/orders"><img src="Icons/account.png" id="other"></a>
+        </div>
+        <div class="logout"><img src="Icons/logout.png" id="logout"></div>
+    </nav>
+    <div class="content">
+        <div class="product">
+        <% product.forEach(product=> { %>
+                <div class="showcase">
+                    <div class="img"><img
+                            src="data:<%= product.image.contentType %>;base64,<%= product.image.data.toString('base64') %>"
+                            alt="">
+                    </div>
+                    <div class="text">
+                        <h1>
+                            <%= product.productName %>
+                        </h1><br>
+                        <b>PRICE:</b>
+                        <p>$<%= product.unitPrice %>
+                        </p>
+                        <p id="desc">
+                            <%= product.productDescription %>
+                        </p>
+                        <a href="/<%- product._id  %>">
+                            <button><img src="Icons/clipboard.png" alt="Order NOW!"></button>
+                        </a>
+                    </div>
+                </div>
+            
+            <% }); %>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

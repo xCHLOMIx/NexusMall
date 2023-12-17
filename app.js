@@ -33,10 +33,16 @@ app.use(express.json())
 
 app.set('view engine', 'ejs')
 app.get('*', checkUser)
-app.get('/', requireAuth, (req, res) => {
+app.get('/home', requireAuth, (req, res) => {
     Product.find()
         .then((result) => {
             res.render('home',{product: result})
+        })
+})
+app.get('/', (req, res) => {
+    Product.find()
+        .then((result) => {
+            res.render('index',{product: result})
         })
 })
 app.use(authRoutes)
