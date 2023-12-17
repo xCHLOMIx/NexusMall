@@ -1,78 +1,56 @@
 @font-face {
     font-family: 'Dem';
     src: url('../Fonts/Dosis/Dosis-VariableFont_wght.ttf');
-}
-* {
+    }  
+*{
     font-family: Dem;
 }
 body{
-    background: url(../Images/bg.png);
-    width: 100%;
-    height: 100vh;
-    margin: 0;
-    padding: 0;
-    background-size: cover;
+    background: url(../Images/bgg.png);
     background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 body::-webkit-scrollbar{
     display: none;
 }
-nav{
-    position: fixed;
-    top: 0;
-    background-color: #0a2351;
-    width: 4%;
-    height: 100%;
+.content{
+    width: 70%;
+    height: 85%;
+    position: relative;
+}
+.title{
+    display: flex;
+    justify-content: center;
+    color: white;
+}
+.title h1{
+    font-size: 5rem;
+    margin: 0;
+}
+.desc p{
+    display: flex;
+    justify-content: center;
+    color: white;
+    width: 60%;
+}
+h2{
+    color: white;
+}
+.cont{
+    width: 100%;
+    height: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 0;
-}
-img{
-    width: 40%;
-    margin-bottom: 100%;
-    cursor: pointer;
-    padding: 20%;
-    margin: 10%;
-    cursor: pointer;
-}
-img#home{
-    cursor: pointer;
-    background-color: #FF4433;
-    border-radius: 10px;
-    transition: .3s ease;
-}
-img#home:hover{
-    background-color: #db3c2e;
-}
-img#other{
-    cursor: pointer;
-    border-radius: 10px;
-    transition: .3s ease;
-}
-img#other:hover{
-    background-color: gray;
-}
-.logo{
-    position: absolute;
-    top: .01%;
-}
-.logout{
-    position: absolute;
-    bottom: 0%;
-}
-.content{
-    height: 100%;
-    width: 90%;
-    margin: -5% 5% 5% 5%;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;    
 }
 .showcase{
     position: relative;
-    height: 60%;
-    width: 23%;
+    height: 80%;
+    width: 60%;
     background-color: white;
     border-radius: 10px;
     border: none;
@@ -80,9 +58,12 @@ img#other:hover{
     box-shadow: 5px 5px 20px -10px black;
     padding: 1%;
 }
+
 .img{
-    height: 50%;
-    width: 100%;
+    height: 100%;
+    width: 40%;
+    float: left;
+    margin-right: 5%;
     background-color: #0d2e6c75;
     border-radius: 8px;
     border: .1px solid rgb(238, 238, 238);
@@ -97,12 +78,6 @@ img#other:hover{
 .img img:hover{
     width: 80%;
 }
-h1#head{
-    margin-bottom: 0;
-    font-size: 6rem;
-    color: white;
-    font-weight: bolder;  
-}
 .text h1{
     color: #0a2351;
     margin-bottom: 0;
@@ -113,25 +88,21 @@ h1#head{
 img{
     cursor: default;
 }
-p#head{
-    width: 45%;
-    font-size: 1.2rem;
-    color: white;
-}
+
 h2{
     color: white;
 }
-button{
+.showcase button{
     position: absolute;
     bottom: 2%;
     right: 2%;
     background-color: #FF4433;
     border: none;
-    height: 45px;
+    height: 10%;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 14%;
+    width: 5%;
     padding: 3%;
     border-radius: 10px;
     transition: .3s ease;
@@ -140,8 +111,33 @@ button{
 button:hover{
     background-color: #db3c2e;
 }
+p#desc{
+    height: 65px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* number of lines to show before ellipsis */
+    -webkit-box-orient: vertical;
+}
 button img{
-    width: 100%;
+    width: 20px;
     margin: 0;
     cursor: pointer;
+}
+h1#title{
+    margin: 0 0 0 19%;
+    color: white;
+}
+.desc button{
+    border: none;
+    background-color: #FF4433;
+    border-radius: 10px;
+    width: 10%;
+    height: 35px;
+    color: white;
+    transition: .3s ease;
+    cursor: pointer;
+}
+.desc button:hover{
+    background-color: #db3c2e;
 }
