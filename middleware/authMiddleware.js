@@ -34,7 +34,6 @@ const requireAdminAuth = ( req, res, next ) => {
                 console.log(err);
             }
             else {
-                console.log(decodeToken);
                 next()
             }
         })
