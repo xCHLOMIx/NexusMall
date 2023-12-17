@@ -6,20 +6,19 @@
     font-family: Dem;
 }
 body{
-    background: url(../Images/bg.png);
+    background: url(../Images/bgg.png);
     width: 100%;
     height: 100vh;
     margin: 0;
     padding: 0;
     background-size: cover;
+    overflow: hidden;
     background-repeat: no-repeat;
 }
-body::-webkit-scrollbar{
-    display: none;
-}
 nav{
-    position: fixed;
+    position: absolute;
     top: 0;
+    left: 0;
     background-color: #0a2351;
     width: 4%;
     height: 100%;
@@ -34,10 +33,8 @@ img{
     cursor: pointer;
     padding: 20%;
     margin: 10%;
-    cursor: pointer;
 }
 img#home{
-    cursor: pointer;
     background-color: #FF4433;
     border-radius: 10px;
     transition: .3s ease;
@@ -46,7 +43,6 @@ img#home:hover{
     background-color: #db3c2e;
 }
 img#other{
-    cursor: pointer;
     border-radius: 10px;
     transition: .3s ease;
 }
@@ -55,34 +51,49 @@ img#other:hover{
 }
 .logo{
     position: absolute;
-    top: .01%;
+    top: 1%;
 }
 .logout{
     position: absolute;
-    bottom: 0%;
+    bottom: 1%;
 }
 .content{
+    background-color: rgba(255, 255, 255, 0.97);
+    box-shadow: 5px 5px 20px -10px black;
+    height: 90%;
+    width: 87%;
+    border-radius: 10px;
+    text-align: start;
+    overflow: hidden;
+    margin: 3% 5% 5% 7%;
+}
+font{
+    font-size: 2rem;
+    font-weight: bold;
+    color: #FF4433;
+}
+.product{
     height: 90%;
     width: 90%;
-    margin: -1% 5% 5% 5%;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;    
 }
 .showcase{
     position: relative;
-    height: 60%;
-    width: 23%;
+    height: 37%;
+    width: 45%;
+    float: left;
     background-color: white;
     border-radius: 10px;
     border: none;
     text-transform: capitalize;
     box-shadow: 5px 5px 20px -10px black;
     padding: 1%;
+    margin: 1%;
 }
 .img{
-    height: 50%;
-    width: 100%;
+    height: 100%;
+    width: 40%;
+    float: left;
+    margin-right: 5%;
     background-color: #0d2e6c75;
     border-radius: 8px;
     border: .1px solid rgb(238, 238, 238);
@@ -97,12 +108,6 @@ img#other:hover{
 .img img:hover{
     width: 80%;
 }
-h1#head{
-    margin-bottom: 0;
-    font-size: 6rem;
-    color: white;
-    font-weight: bolder;  
-}
 .text h1{
     color: #0a2351;
     margin-bottom: 0;
@@ -113,25 +118,21 @@ h1#head{
 img{
     cursor: default;
 }
-p#head{
-    width: 45%;
-    font-size: 1.2rem;
-    color: white;
-}
+
 h2{
     color: white;
 }
-button{
+.showcase button{
     position: absolute;
     bottom: 2%;
-    right: 2%;
+    right: 1%;
     background-color: #FF4433;
     border: none;
-    height: 45px;
+    height: 10%;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 14%;
+    width: 5%;
     padding: 3%;
     border-radius: 10px;
     transition: .3s ease;
@@ -140,8 +141,73 @@ button{
 button:hover{
     background-color: #db3c2e;
 }
-button img{
-    width: 100%;
+p#desc{
+    height: 65px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* number of lines to show before ellipsis */
+    -webkit-box-orient: vertical;
+}
+.showcase button img{
+    width: 20px;
     margin: 0;
     cursor: pointer;
+}
+.img{
+    height: 100%;
+    width: 40%;
+    border-radius: 10px;
+    border: 1px solid rgb(224, 224, 224);
+    float: left;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.img img{
+    width: 70%;
+}
+h1{
+    margin: 0;
+}
+.desc{
+    height: 100%;
+    display: flex;
+}
+.text{
+    height: 100%;
+    width: 80%;
+    margin-left: 4%;
+    font-stretch: narrower;
+}
+.text h1,
+.text b{
+    color: #FF4433;
+    margin: 0;
+    font-family: Dem;
+}
+h1{
+    padding: 0;
+}
+@media (max-width: 1211px){
+    .content{
+        margin: 0;
+    }
+    .order{
+        width: 96%;
+        margin: 1.5%;
+    }
+}
+@media (max-width: 768px){
+    .order{
+        height: 20%;
+        margin: 2%;
+    }
+    .nav{
+        display: none;
+    }
+    font{
+        font-size: 1rem;
+    }
 }

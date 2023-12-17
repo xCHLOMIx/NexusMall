@@ -37,7 +37,7 @@ app.get('/home', requireAuth, (req, res) => {
             res.render('home',{product: result})
         })
 })
-app.get('/', requireAuth, (req, res) => {
+app.get('/', (req, res) => {
     Product.find()
         .then((result) => {
             res.render('index',{product: result})
