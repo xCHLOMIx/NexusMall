@@ -5,15 +5,15 @@ const { isEmail }= require('validator')
 const adminSchema = mongoose.Schema({
     email: {
         type: String,
-        required: [true, 'please provide an email'],
+        required: [true, 'Please provide an email'],
         unique: true,
         lowercase: true,
-        validate: [isEmail, 'please provide valid email']
+        validate: [isEmail, 'Please provide valid email']
     },
     password: {
         type: String,
-        required: [true, 'please provide a password'],
-        minlength:[6,'your password should be 6 characters or more']
+        required: [true, 'Please provide a password'],
+        minlength:[6,'Your password should be 6 characters or more']
     }
 })
 adminSchema.pre('save', async function (next) {
@@ -29,9 +29,9 @@ adminSchema.statics.login = async function (email, password) {
         if (auth) {
             return admin
         }
-        throw Error('incorrect password')
+        throw Error('Incorrect password')
     }
-    throw Error('incorrect email')
+    throw Error('Incorrect email')
 }
 const Admin = mongoose.model('admin', adminSchema)
 module.exports = Admin;
