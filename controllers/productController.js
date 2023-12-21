@@ -1,9 +1,13 @@
 const { render } = require('ejs');
 const Product = require('../models/productModel')
+const User = require('../models/userModel')
+const checkUser = require('../middleware/middlewares')
+const Order = require('../models/orderModel')
 const multer = require('multer')
+const jwt = require('jsonwebtoken')
 const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
-const { mongoose } = require('mongoose')
+const { mongoose } = require('mongoose');
 
 const product_get = (req, res) => {
     res.render('record')
@@ -30,9 +34,36 @@ const product_post = async (req, res) => {
         res.status(400).send('Internal Server Error');
     }
 }
+const currentUserId = (req) => {
+    const token = req.cookies.jwt;
+    
+}
 const orders = (req, res) => {
+    Order.find()
+        .then((result) => {
+            const token = req.cookies.jwt;
+            jwt.verify(token, 'mugisha and chlomi created nexusmall', async (err, decodeToken) => {
+                if (err) {
+                    console.log(err);
+                }
+                else {
+                    const user = User.findById(decodeToken.id)
+                    res.render('orders', { orders: result, username: user.username, userId: user._id })
+                }
+            })
+            
+        }).catch((err) => {
+            console.log(err);
+        })
 
-    res.render('orders')
+}
+const order = async (req, res) => {
+    const { productName, userId} = req.body
+    const order = await Order.create({
+        productName: productName,
+        userId
+    })
+    res.status(201).json({ order: order._id })
 }
 const product_details = async (req, res) => {
     const id = req.params.id;
@@ -73,5 +104,6 @@ module.exports = {
     orders,
     product_details,
     error404,
+    order,
     products
 }

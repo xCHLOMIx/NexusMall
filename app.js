@@ -7,7 +7,7 @@ const mongoose = require('mongoose')
 const authRoutes = require('./routes/authRoutes')
 const adminRoutes = require('./routes/adminRoutes')
 const productRoutes = require('./routes/productRoutes')
-const { requireAuth, checkUser } = require('./middleware/authMiddleware')
+const { requireAuth, checkUser } = require('./middleware/middlewares')
 
 // Import necessary modules and set up configurations
 
@@ -36,13 +36,15 @@ app.get('*', checkUser)
 app.get('/home', requireAuth, (req, res) => {
     Product.find()
         .then((result) => {
-            res.render('home',{product: result})
+            console.log(typeof(result));
+            res.render('home', { product: result })
+
         })
 })
 app.get('/', (req, res) => {
     Product.find()
         .then((result) => {
-            res.render('index',{product: result})
+            res.render('index', { product: result })
         })
 })
 app.use(authRoutes)

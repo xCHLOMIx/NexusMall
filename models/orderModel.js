@@ -5,7 +5,7 @@ const orderSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    username:{
+    userId:{
         type: String,
         required: true
     },
@@ -15,9 +15,9 @@ const orderSchema = mongoose.Schema({
     },
     date:{
         type: String,
-        default: Date.now()
+        default: `${new Date().getDate()}-${new Date().getMonth() + 1}-${new Date().getFullYear()}`
     }
 })
-const Order = mongoose.model('oreder', orderSchema)
+const Order = mongoose.model('order', orderSchema)
 
 module.exports = Order;

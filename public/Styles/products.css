@@ -142,11 +142,12 @@ button:hover{
     background-color: #db3c2e;
 }
 p#desc{
-    height: 65px;
+    height: 20%;
+    width: 48%;
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
-    -webkit-line-clamp: 3; /* number of lines to show before ellipsis */
+    -webkit-line-clamp: 2; /* number of lines to show before ellipsis */
     -webkit-box-orient: vertical;
 }
 .showcase button img{
