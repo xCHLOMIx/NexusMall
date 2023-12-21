@@ -6,7 +6,7 @@ const multer = require('multer');
 const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
 
-router.get('/orders', requireAuth, orders)
+router.get('/orders', requireAuth, upload.single('productImage'), orders)
 router.post('/order', requireAuth, upload.single('productImage'), order)
 router.get('/products', requireAuth, products)
 router.get('/:id', requireAuth, product_details)

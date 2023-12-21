@@ -24,16 +24,12 @@
             <div class="orders">
                 <% orders.forEach(order => { %>
                 <div class="order">
-                          
-                        <div class="img">
-                          <img src="" alt="">
-                        </div>
                         <div class="desc">
                           <div class="text"><b>Product:</b>
                             <p><%= order.productName%></p>
                           </div>
                           <div class="text"><b>Ordered by:</b>
-                            <p><%= username %></p>
+                            <p><%= order.username %></p>
                           </div>
                           <div class="text"><b>Date:</b>
                             <p><%= order.date %></p>

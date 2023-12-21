@@ -61,7 +61,7 @@ const order = async (req, res) => {
     const { productName, userId} = req.body
     const order = await Order.create({
         productName: productName,
-        userId
+        userId,
     })
     res.status(201).json({ order: order._id })
 }
