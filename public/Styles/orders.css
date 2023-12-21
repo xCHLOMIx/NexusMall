@@ -67,7 +67,7 @@ img#other:hover{
     overflow: hidden;
     margin: 3% 5% 5% 7%;
 }
-font{
+font#one{
     font-size: 2rem;
     font-weight: bold;
     color: #FF4433;
@@ -90,6 +90,7 @@ font{
     height: 88%;
     width: 90%;
     border-radius: 10px;
+    padding: 0.5%;
     border: 1px solid rgb(224, 224, 224);
     box-shadow: 5px 5px 10px rgb(226, 226, 226);
     margin-top: 1%;
@@ -102,12 +103,12 @@ font{
     border-radius: 10px;
     border: 1px solid rgb(224, 224, 224);
     box-shadow: 5px 5px 10px rgb(226, 226, 226);
-    width: 45.7%;
-    height: 15%;
+    width: 30%;
+    height: 35%;
     float: left;
+    margin: 0.5%;
     padding: 1%;
     position: relative;
-    margin: 1%;
 }
 .img{
     height: 100%;
@@ -128,7 +129,6 @@ h1{
 }
 .desc{
     height: 100%;
-    display: flex;
 }
 .text{
     height: 100%;
@@ -137,7 +137,7 @@ h1{
     font-stretch: narrower;
 }
 .text h1,
-.text b{
+.desc b{
     color: #FF4433;
     margin: 0;
     font-family: Dem;
@@ -170,6 +170,16 @@ button:hover{
 }
 button img{
     width: 70%;
+}
+.reply{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 7%;
+}
+h1#Reply{
+    font-size: 100px;
 }
 @media (max-width: 1211px){
     .content{

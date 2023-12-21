@@ -50,11 +50,8 @@ const orders = (req, res) => {
                     let id = decodeToken.id
                     const user = User.findById(id)
                         .then((result) => {
-                            console.log(result.username);
                             let userResults =[]
                             results.forEach(userResult => {
-                                console.log(userResult.userId)
-                                console.log(decodeToken.id)
                                 if (userResult.userId == decodeToken.id) {
                                     userResults.push(userResult)
                                 }
