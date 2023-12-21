@@ -5,29 +5,29 @@ const { isEmail }= require('validator')
 const userSchema = mongoose.Schema({
     username: {
         type: String,
-        required: [true, 'please enter your username'],
-        minlength: [4, 'your username should be 4 characters or more'],
+        required: [true, 'Please enter your username'],
+        minlength: [4, 'Your username should be 4 characters or more'],
         unique: true
     },
     firstname: {
         type: String,
-        required: [true, 'please enter your firstname'],
+        required: [true, 'Please enter your firstname'],
     },
     lastname: {
         type: String,
-        required: [true, 'please enter your lastname'],
+        required: [true, 'Please enter your lastname'],
     },
     email: {
         type: String,
-        required: [true, 'please provide an email'],
+        required: [true, 'Please provide an email'],
         unique: true,
         lowercase: true,
-        validate: [isEmail, 'please provide valid email']
+        validate: [isEmail, 'Please provide valid email']
     },
     password: {
         type: String,
-        required: [true, 'please provide a password'],
-        minlength:[6,'your password should be 6 characters or more']
+        required: [true, 'Please provide a password'],
+        minlength:[6,'Your password should be 6 characters or more']
     }
 })
 userSchema.pre('save', async function (next) {
@@ -43,9 +43,9 @@ userSchema.statics.login = async function (email, password) {
         if (auth) {
             return user
         }
-        throw Error('incorrect password')
+        throw Error('Incorrect password')
     }
-    throw Error('incorrect email')
+    throw Error('Incorrect email')
 }
 const User = mongoose.model('user', userSchema)
 module.exports = User;

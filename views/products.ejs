@@ -18,29 +18,51 @@
     </nav>
     <div class="content">
         <div class="product">
-        <% product.forEach(product=> { %>
-                <div class="showcase">
+            <h1>In Stock:</h1>
+        <% for( let i = 0; i < product.length; i++) { 
+            if(i % 3 === 2) {%>
+                <div class="showcase" id="b1">
                     <div class="img"><img
-                            src="data:<%= product.image.contentType %>;base64,<%= product.image.data.toString('base64') %>"
+                            src="data:<%= product[i].image.contentType %>;base64,<%= product[i].image.data.toString('base64') %>"
                             alt="">
                     </div>
                     <div class="text">
                         <h1>
-                            <%= product.productName %>
+                            <%= product[i].productName %>
                         </h1><br>
                         <b>PRICE:</b>
-                        <p>$<%= product.unitPrice %>
+                        <p>$<%= product[i].unitPrice %>
                         </p>
                         <p id="desc">
-                            <%= product.productDescription %>
+                            <%= product[i].productDescription %>
                         </p>
-                        <a href="/<%- product._id  %>">
+                        <a href="/<%- product[i]._id  %>">
+                            <button id="no"><img src="Icons/clipboard.png" alt="Order NOW!"></button>
+                        </a>
+                    </div>
+                </div>
+            <% } else { %>
+                <div class="showcase">
+                    <div class="img"><img
+                            src="data:<%= product[i].image.contentType %>;base64,<%= product[i].image.data.toString('base64') %>"
+                            alt="">
+                    </div>
+                    <div class="text">
+                        <h1>
+                            <%= product[i].productName %>
+                        </h1><br>
+                        <b>PRICE:</b>
+                        <p>$<%= product[i].unitPrice %>
+                        </p>
+                        <p id="desc">
+                            <%= product[i].productDescription %>
+                        </p>
+                        <a href="/<%- product[i]._id  %>">
                             <button><img src="Icons/clipboard.png" alt="Order NOW!"></button>
                         </a>
                     </div>
                 </div>
-            
-            <% }); %>
+        <% }}; %>
             </div>
         </div>
     </div>

@@ -16,7 +16,7 @@ process.on('unhandledRejection', (reason, promise) => {
 });
 // conecting to the database
 
-mongoose.connect('mongodb://localhost/nexusmall')
+mongoose.connect('mongodb://localhost:27017/nexusmall')
     .then((res) => {
         app.listen(4000)
     })
