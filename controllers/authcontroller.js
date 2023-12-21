@@ -10,10 +10,10 @@ const handleErrors = (err) => {
         }
         return errors;
     }
-    if (err.message === 'incorrect email') {
+    if (err.message === 'Incorrect email') {
         errors.email= 'that email is not registerd'
     }
-    if (err.message === 'incorrect password') {
+    if (err.message === 'Incorrect password') {
         errors.password= 'that password is incorect'
     }
     if (err.message.includes('user validation failed')) {

@@ -40,15 +40,31 @@ const currentUserId = (req) => {
 }
 const orders = (req, res) => {
     Order.find()
-        .then((result) => {
+        .then((results) => {
             const token = req.cookies.jwt;
             jwt.verify(token, 'mugisha and chlomi created nexusmall', async (err, decodeToken) => {
                 if (err) {
                     console.log(err);
                 }
                 else {
-                    const user = User.findById(decodeToken.id)
-                    res.render('orders', { orders: result, username: user.username, userId: user._id })
+                    let id = decodeToken.id
+                    const user = User.findById(id)
+                        .then((result) => {
+                            console.log(result.username);
+                            let userResults =[]
+                            results.forEach(userResult => {
+                                console.log(userResult.userId)
+                                console.log(decodeToken.id)
+                                if (userResult.userId == decodeToken.id) {
+                                    userResults.push(userResult)
+                                }
+
+                            });
+                            res.render('orders', { orders: userResults, username: result.username, userId: user._id })
+                        })
+                        .catch((err) => {
+                            console.log(err);
+                        })
                 }
             })
             
