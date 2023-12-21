@@ -5,8 +5,9 @@ const morgan = require('morgan')
 const cookieParser = require('cookie-parser')
 const mongoose = require('mongoose')
 const authRoutes = require('./routes/authRoutes')
+const adminRoutes = require('./routes/adminRoutes')
 const productRoutes = require('./routes/productRoutes')
-const { requireAuth, checkUser } = require('./middleware/authMiddleware')
+const { requireAuth, checkUser } = require('./middleware/middlewares')
 
 // Import necessary modules and set up configurations
 
@@ -16,8 +17,9 @@ process.on('unhandledRejection', (reason, promise) => {
 });
 // conecting to the database
 
-mongoose.connect('mongodb://localhost:27017/nexusmall')
+mongoose.connect('mongodb://127.0.0.1:27017/nexusmall')
     .then((res) => {
+        console.log('connecting to the database')
         app.listen(4000)
     })
     .catch((err) => {
@@ -34,16 +36,19 @@ app.get('*', checkUser)
 app.get('/home', requireAuth, (req, res) => {
     Product.find()
         .then((result) => {
-            res.render('home',{product: result})
+            console.log(typeof(result));
+            res.render('home', { product: result })
+
         })
 })
 app.get('/', (req, res) => {
     Product.find()
         .then((result) => {
-            res.render('index',{product: result})
+            res.render('index', { product: result })
         })
 })
 app.use(authRoutes)
+app.use(adminRoutes)
 app.use(productRoutes)
 
 

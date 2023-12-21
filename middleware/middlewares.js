@@ -34,7 +34,6 @@ const requireAdminAuth = ( req, res, next ) => {
                 console.log(err);
             }
             else {
-                console.log(decodeToken);
                 next()
             }
         })
@@ -56,7 +55,7 @@ const checkUser = (req, res, next) => {
             }
             else {
                 console.log(decodeToken);
-                let user = await User.findById(decodeToken.id)
+                user = await User.findById(decodeToken.id)
                 res.locals.user = user
                 next()
             }
@@ -69,5 +68,6 @@ const checkUser = (req, res, next) => {
 }
 module.exports = {
     requireAuth,
-    checkUser
+    checkUser,
+    requireAdminAuth
 }

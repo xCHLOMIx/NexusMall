@@ -175,7 +175,7 @@ p#desc{
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
-    -webkit-line-clamp: 3; /* number of lines to show before ellipsis */
+    -webkit-line-clamp: 2; /* number of lines to show before ellipsis */
     -webkit-box-orient: vertical;
 }
 .showcase#b1 p#desc{
