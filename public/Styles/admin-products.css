@@ -14,6 +14,7 @@ body{
     background-size: cover;
     overflow: hidden;
     background-repeat: no-repeat;
+    display: flex;
 }
 nav{
     position: absolute;
@@ -58,6 +59,7 @@ img#other:hover{
     bottom: 1%;
 }
 .content{
+    position: relative;
     background-color: white;
     height: 90%;
     width: 87%;
@@ -66,6 +68,28 @@ img#other:hover{
     margin: 3% 5% 5% 7%;
     box-shadow: 5px 5px 20px -10px black;
     overflow: hidden;
+}
+.content button#b1{
+    position: absolute;
+    top: 1%;
+    right: 0.5%;
+    background-color: #FF4433;
+    border: none;
+    height: 5.5%;
+    width: 3%;
+    border-radius: 10px;
+    transition: .3s ease;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+.content button#b1:hover{
+    background-color: #db3c2e;
+}
+.content button img{
+    width: 70%;
+    cursor: pointer;
 }
 h1#head{
     margin: 2% 0% 0% 3%;
@@ -200,19 +224,9 @@ p#desc{
     justify-content: center;
     align-items: center;
 }
-.showcase#b1 .img{
-    height: 100%;
-    width: 30%;
-    border-radius: 10px;
-    border: 1px solid rgb(224, 224, 224);
-    float: left;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 .img img{
     width: 70%;
+    cursor: pointer;
 }
 h1{
     margin: 0;

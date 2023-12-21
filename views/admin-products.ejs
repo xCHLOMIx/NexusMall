@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Styles/admin-products.css">
+    <title>NexusMall</title>
+</head>
+
+<body>
+    <nav>
+        <div class="logo"><img src="Exclusion 1.png" alt="" id="logo"></div>
+        <div class="links">
+            <a href="/dashboard"><img src="Icons/dashboard.png" id="other"></a>
+            <a href="/users"><img src="Icons/users.png" id="other"></a>
+            <a href="/products-admin"><img src="Icons/box.png" id="home"></a>
+            <a href="/admin-orders"><img src="Icons/clipboard.png" id="other"></a>
+        </div>
+        <div class="logout"><img src="Icons/logout.png" id="logout"></div>
+    </nav>
+    <div class="content">
+        <h1 id="head">In Stock:</h1>
+        <a href="/record"><button id="b1"><img src="Icons/add.png" alt=""></button></a>
+        <div class="product">
+            <% for( let i=0; i < product.length; i++) {%>
+                <div class="showcase">
+                    <div class="img"><img
+                            src="data:<%= product[i].image.contentType %>;base64,<%= product[i].image.data.toString('base64') %>"
+                            alt="">
+                    </div>
+                    <div class="text">
+                        <h1>
+                            <%= product[i].productName %>
+                        </h1><br>
+                        <b>$<%= product[i].unitPrice %></b>
+                        <p id="desc">
+                            <%= product[i].productDescription %>
+                        </p>
+                        <a href="">
+                            <button><img src="Icons/delete.png" alt="Order NOW!"></button>
+                        </a>
+                    </div>
+                </div>
+            <% }; %>
+        </div>
+    </div>
+    </div>
+</body>
+
+</html>
