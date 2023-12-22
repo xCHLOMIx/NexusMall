@@ -2,46 +2,105 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="Styles/admin-orders.css">
-    <title>NexusMall</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="Styles/admin-orders.css">
+  <title>NexusMall</title>
 </head>
 
 <body>
-    <nav>
-        <div class="logo"><img src="Images/Exclusion 1.png" alt="" id="logo"></div>
-        <div class="links">
-            <a href="/dashboard"><img src="Icons/dashboard.png" id="other"></a>
-            <a href="/users"><img src="Icons/users.png" id="other"></a>
-            <a href="/products-admin"><img src="Icons/box.png" id="other"></a>
-            <a href="/admin-orders"><img src="Icons/clipboard.png" id="home"></a>
-        </div>
-        <div class="logout"><img src="Icons/logout.png" id="logout"></div>
-    </nav>
-    <div class="content">
-        <div class="title">
-            <font id="none">All Orders</font>
-        </div>
-        <div class="display">
-            <div class="orders">
-                <div class="order">
-                    <div class="desc">
-                        <b>Product:</b> <font>KEYBOARD</font> <br><br>
-                        <b>Ordered by:</b>
-                        <font>CHLOMI Gutabarwa Justifie </font> <br><br>
-                        <b>Date:</b>
-                        <font>13 - 06 - 2023</font><br><br>
-                        <b>Status:</b>
-                        <font>Pending...</font><br><br>
-                        <div class="linked">
-                            <button id="confirm"><img src="../Icons/check.png" alt=""></button> 
-                            <button id="decline"><img src="../Icons/cross.png" alt=""></button>
-                        </div>
-                    </div>
-                </div>
+  <nav>
+    <div class="logo"><img src="Images/Exclusion 1.png" alt="" id="logo"></div>
+    <div class="links">
+      <a href="/dashboard"><img src="Icons/dashboard.png" id="other"></a>
+      <a href="/users"><img src="Icons/users.png" id="other"></a>
+      <a href="/products-admin"><img src="Icons/box.png" id="other"></a>
+      <a href="/admin-orders"><img src="Icons/clipboard.png" id="home"></a>
+    </div>
+    <div class="logout"><a href="/logout"><img src="Icons/logout.png" id="logout"></a></div>
+  </nav>
+  <div class="content">
+    <div class="title">
+      <font id="none">All Orders</font>
+    </div>
+    <div class="display">
+      <div class="orders">
+        <% for( let i=0; i < orders.length; i++) {%>
+        <div class="order">
+
+          <div class="desc">
+            <b>Product:</b>
+            <font><%= orders[i].productName %></font> <br><br>
+            <b>Ordered by:</b>
+            <font><%=orders_users[i]  %> </font> <br><br>
+            <b>Date:</b>
+            <font><%= orders[i].date %></font><br><br>
+            <b>Status:</b>
+            <font><%= orders[i].status %></font><br><br>
+            <% if (orders[i].status == 'pending...') {%>
+
+            <div class="linked">
+              <button class="confirm-btn" data-orderId='<%= orders[i]._id.toString() %>' data-status='<%= orders[i].status %>' data-date='<%= orders[i].date %>' data-userId='<%= orders[i].userId %>' data-productName='<%= orders[i].productName %>'>
+                <img src="../Icons/check.png" alt="">
+              </button>
+
+
+
+              <button id="decline"><img src="../Icons/cross.png" alt=""></button>
             </div>
+            <% } %>
+          </div>
         </div>
+        <% } %>
+      </div>
+    </div>
+  </div>
+ <script>
+   const confirmButtons = document.querySelectorAll('.confirm-btn');
+
+   confirmButtons.forEach(confirm_btn => {
+   confirm_btn.addEventListener('click', async function(e) {
+   const orderId = this.getAttribute('data-orderId');
+   const productName = this.getAttribute('data-productName');
+   const status = this.getAttribute('data-status');
+   const date = this.getAttribute('data-date');
+   const userId = this.getAttribute('data-userId');
+
+   confirm_btn.addEventListener('click', async (e) => {
+        try {
+        const res = await fetch('/admin-orders', {
+            method: 'POST',
+            body: JSON.stringify({
+                orderId,
+                productName,
+                userId,
+                status,
+                date
+            }),
+            headers: {
+            'content-Type': 'application/json'
+            },
+        });
+        const data = await res.json()
+        if (data) {
+            console.log(data);
+        }
+        if (data.confirmed) {
+            window.location.assign('/dashboard')
+        }
+        } catch (err) {
+        console.log(err);
+        }
+    })
+
+
+   // Add more logic here based on the clicked button
+   });
+   });
+
+
+ </script>
+
 </body>
 
 </html>

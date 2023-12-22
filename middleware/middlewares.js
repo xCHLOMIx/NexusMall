@@ -30,7 +30,7 @@ const requireAdminAuth = ( req, res, next ) => {
         jwt.verify(token, 'mugisha and chlomi created nexusmall', ( err, decodeToken ) => {
             if (err) {
                
-                res.redirect('/login')
+                res.redirect('/admin_login')
                 console.log(err);
             }
             else {

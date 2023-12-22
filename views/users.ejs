@@ -17,7 +17,7 @@
             <a href="/products-admin"><img src="Icons/box.png" id="other"></a>
             <a href="/admin-orders"><img src="Icons/clipboard.png" id="other"></a>
         </div>
-        <div class="logout"><img src="Icons/logout.png" id="logout"></div>
+        <div class="logout"><a href="/logout"><img src="Icons/logout.png" id="logout"></a></div>
     </nav>
     <div class="content">
         <div class="title">
@@ -25,26 +25,28 @@
         </div>
         <div class="display">
             <div class="users">
-                <div class="user">
-                    <div class="img">
-                        <img src="user.png" alt="">
+                <% users.forEach(user => { %>
+                    
+                    <div class="user">
+                        <div class="img">
+                            <img src="Icons/user.png" alt="">
+                        </div>
+                        <div class="desc">
+                            <div class="text"><b>Username:</b>
+                                <p> <%=user.username %> </p>
+                            </div>
+                            <div class="text"><b>First Name:</b>
+                                <p> <%=user.firstname %></p>
+                            </div>
+                            <div class="text"><b>Last Name(s):</b>
+                                <p> <%=user.lastname %></p>
+                            </div>
+                            <div class="text"><b>E-mail:</b>
+                                <p> <%=user.email %></p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="desc">
-                        <div class="text"><b>Username:</b>
-                            <p>Chlomi</p>
-                        </div>
-                        <div class="text"><b>First Name:</b>
-                            <p>Chlomi</p>
-                        </div>
-                        <div class="text"><b>Last Name(s):</b>
-                            <p>Gutabarwa</p>
-                        </div>
-                        <div class="text"><b>E-mail:</b>
-                            <p>chlomi2006@gmail.com</p>
-                        </div>
-                        <button id="decline"><img src="delete.png" alt=""></button>
-                    </div>
-                </div>
+               <% }); %>
             </div>
         </div>
 </body>

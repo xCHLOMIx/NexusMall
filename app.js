@@ -30,7 +30,7 @@ app.use(cookieParser());
 app.use(express.static('public'))
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
-
+const { error404 } = require('./controllers/productController')
 app.set('view engine', 'ejs')
 app.get('*', checkUser)
 app.get('/home', requireAuth, (req, res) => {
@@ -47,8 +47,9 @@ app.get('/', (req, res) => {
             res.render('index', { product: result })
         })
 })
-app.use(authRoutes)
 app.use(adminRoutes)
+app.use(authRoutes)
 app.use(productRoutes)
+
 
 

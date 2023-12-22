@@ -1,23 +1,23 @@
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
 
 const orderSchema = mongoose.Schema({
-    productName:{
+    productName: {
         type: String,
         required: true
     },
-    userId:{
+    userId: {
         type: String,
         required: true
     },
-    status:{
+    status: {
         type: String,
-        default: 'Pending...'
+        default: 'pending...'
     },
-    date:{
+    date: {
         type: String,
         default: `${new Date().getDate()}-${new Date().getMonth() + 1}-${new Date().getFullYear()}`
     }
-})
-const Order = mongoose.model('order', orderSchema)
+});
 
+const Order = mongoose.model('order', orderSchema);
 module.exports = Order;

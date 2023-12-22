@@ -98,6 +98,9 @@ const logout_get = (req, res) => {
     res.cookie('jwt', '', {
         maxAge: 1,
     })
+    res.cookie('jwt_admin', '', {
+        maxAge: 1,
+    })
     res.redirect('/')
 }
 

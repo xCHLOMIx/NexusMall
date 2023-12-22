@@ -17,7 +17,7 @@
             <a href="/products-admin"><img src="Icons/box.png" id="other"></a>
             <a href="/admin-orders"><img src="Icons/clipboard.png" id="other"></a>
         </div>
-        <div class="logout"><img src="Icons/logout.png" id="logout"></div>
+        <div class="logout"><a href="/logout"><img src="Icons/logout.png" id="logout"></a></div>
     </nav>
     <div class="content">
         <div class="title">
@@ -27,17 +27,17 @@
             <div class="show">
                 <div class="view">
                     <h1 id="title">Users</h1><br>
-                    <h1>8</h1>
+                    <h1><%= users.length %></h1>
                     <p>Active Users</p>
                 </div>
                 <div class="view">
                     <h1 id="title">Products</h1><br>
-                    <h1>17</h1>
+                    <h1><%= products.length %></h1>
                     <p>In Stock</p>
                 </div>
                 <div class="view">
                     <h1 id="title">Orders</h1><br>
-                    <h1>8</h1>
+                    <h1><%= pendingOrders.length %></h1>
                     <p>Pending orders</p>
                 </div>
             </div>
@@ -48,31 +48,33 @@
                         <div class="img">
                             <img src="user.png" alt="">
                         </div>
+
                         <div class="desc">
                             <div class="text"><b>Username:</b>
-                                <p>Chlomi</p>
+                                <p><%= users[0].username %></p>
                             </div>
                             <div class="text"><b>First Name:</b>
-                                <p>Chlomi</p>
+                                <p><%= users[0].firstname %></p>
                             </div>
                             <div class="text"><b>Last Name(s):</b>
-                                <p>Gutabarwa</p>
+                                <p><%= users[0].lastname %></p>
                             </div>
                             <div class="text"><b>E-mail:</b>
-                                <p>chlomi2006@gmail.com</p>
+                                <p><%= users[0].email %></p>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="products">
                     <div class="showcase">
-                        <div class="img"><img src="keyboard.png" alt=""></div>
+                        <div class="img"><img src="data:<%= products[0].image.contentType %>;base64,<%= products[0].image.data.toString('base64') %>" alt="">
+                        </div>
                         <div class="text">
                             <h1>
-                                KEYBOARD
+                                <%= products[0].productName %>
                             </h1><br>
                             <b>PRICE:</b>
-                            <p>$1200
+                            <p>$<%= products[0].unitPrice %>
                             </p>
                             <button><img src="Icons/cart.png" alt="Order NOW!"></button>
                         </div>
