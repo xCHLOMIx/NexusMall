@@ -52,8 +52,11 @@
 
       trashcans.forEach(trashcan => {
         trashcan.addEventListener('click', async function(e) {
+          let confirmDeletion = window.confirm('do you want to delete this product')
+          
           const productId = this.getAttribute('data-doc');
-          try {
+          if (confirmDeletion) {
+            try {
             const res = await fetch('/products-admin', {
               method: 'DELETE',
               body: JSON.stringify({
@@ -73,6 +76,8 @@
           } catch (err) {
             console.log(err);
           }
+          }
+          
         })
       });
 </script>
