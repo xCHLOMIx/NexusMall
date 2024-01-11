@@ -53,3 +53,8 @@ app.use(productRoutes)
 
 
 
+async function findProduct() {
+    
+  }
+  
+  findProduct();

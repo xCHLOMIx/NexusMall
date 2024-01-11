@@ -7,7 +7,7 @@ const adminpanel_get = async (req, res) => {
     const orders = await Order.find()
     const pendingOrders = []
     orders.forEach(order => {
-        if (order.status == 'pending...') {
+        if (order.status == 'Pending...') {
             pendingOrders.push(order)
         }
     });
@@ -48,8 +48,36 @@ const delete_product = (req, res) => {
 }
 const orders_put = async (req, res) => {
     const { orderId, productName, userId, status, date } = req.body;
+    var pname = productName
     const update = { orderId, productName, userId, status: 'confirmed', date };
-
+    try {
+        const productName = pname; // Replace with the actual product name
+        const product = await Product.findOne({ productName });
+    
+        if (product) {
+            const product_update = await Product.findOneAndUpdate(
+                { _id: product._id },
+                {
+                    image: product.image,
+                    productName: product.productName,
+                    unitPrice: product.unitPrice,
+                    productQuantity: product.productQuantity - 1,
+                    productDescription: product.productDescription,
+                    createdAt: product.createdAt,
+                    updatedAt: product.updatedAt,
+                    __v: product.__v
+                },
+                { new: true } // To return the updated document
+            );
+    
+            console.log(product_update + 'HEYY');
+        } else {
+            console.log('Product not found.');
+        }
+    } catch (error) {
+        console.error(error);
+    }
+    
     try {
         const updatedOrder = await Order.findByIdAndUpdate(orderId, update, { new: true });
 
@@ -70,9 +98,13 @@ const products = async (req, res) => {
     const products = await Product.find()
     res.render('admin-products',{products})
 }
+const update_product = async (req,res)=>{
+    console.log('hihi');
+}
 module.exports = {
     adminpanel_get,
     users,
+    update_product,
     orders_get,
     products,
     orders_put,
