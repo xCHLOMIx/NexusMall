@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Styles/index.css">
+    <title>Nexus Mall | Welcome</title>
+</head>
+<body bg-color="red">
+    <div class="content" bg-color="red">
+        <div class="title"><h1>NexusMall</h1></div>
+        <div class="desc">
+            <center>
+                <p id="head">
+                    Your premier online shopping destination! Discover a world of convenience and
+                    style as we bring you an exclusive selection of cutting-edge electronics,
+                    fashion-forward apparel, and essential home goods.At NexusMall, we pride
+                    ourselves on providing a seamless and secure shopping experience. Enjoy
+                    the ease of navigating our user-friendly platform, and stay ahead of the
+                    trends with our curated collection of top-quality products. Experience the
+                    future of online shopping at NexusMall, where your satisfaction is our priority.
+                </p>
+                <a href="/products"><button>Browse...</button></a>
+            </center>
+        </div>
+        <h1 id="title">Featured Product:</h1>
+        <div class="cont">
+                <div class="showcase">
+                    <div class="img"><img
+                            src="data:<%= product[0].image.contentType %>;base64,<%= product[0].image.data.toString('base64') %>"
+                            alt="">
+                    </div>
+                    <div class="text">
+                        <h1>
+                            <%= product[0].productName %>
+                        </h1><br>
+                        <b>PRICE:</b>
+                        <p>$<%= product[0].unitPrice %>
+                        </p>
+                        <p id="desc"><%= product[0].productDescription %>
+                        </p>
+
+                    </div>
+                </div>
+        </div>
+    </div>
+</body>
+</html>

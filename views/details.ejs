@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="Styles/details.css">
+  <title>NexusMall</title>
+</head>
+
+<body>
+  <nav>
+    <div class="logo"><a href="/"><img src="Images/Exclusion 1.png" alt="" id="logo"></div>
+    <div class="links">
+      <a href="/home"><img src="Icons/home.png" id="other"></a>
+      <a href="/products"><img src="Icons/browse.png" id="home"></a>
+      <a href="/orders"><img src="Icons/account.png" id="other"></a>
+    </div>
+    <div class="logout"><a href="/logout"><img src="Icons/logout.png" id="logout"></a></div>
+  </nav>
+  <div class="content">
+    <div class="product">
+      <div class="image">
+        <img src="data:<%= product.image.contentType %>;base64,<%= product.image.data.toString('base64') %>" alt="">
+      </div>
+      <div class="txt">
+        <h1><%= product.productName %></h1><br><br>
+        <b>Price:</b><br>
+        <p>$<%= product.unitPrice  %></p>
+        <b><%= product.productQuantity %> </b> Left in Stock<br><br>
+        <b>Description:</b>
+        <p><%= product.productDescription %></p>
+      </div>
+      <button id="confirm">Order Now</button>
+    </div>
+    <div class="other">
+      <h1>Other Products:</h1>
+      <div class="order">
+        <div class="img">
+          <img src="Images/keyboard.png" alt="">
+        </div>
+        <div class="desc">
+          <div class="text">
+            <b id="name">KEYBOARD</b>
+            <b id="price">$129</b>
+            <b id="qty">30 in Stock</b>
+          </div>
+          <button id="confirm"><img src="Icons/Cart.png" alt=""></button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    let productName = '<%= product.productName %>'
+    let userId = '<%= user._id %>'
+    let order = document.getElementById('confirm')
+    order.addEventListener('click', async (e) => {
+      try {
+
+        const res = await fetch('/order', {
+          method: 'POST',
+          body: JSON.stringify({
+            productName,
+            userId
+          }),
+          headers: {
+            'content-Type': 'application/json'
+          },
+        });
+        const data = await res.json()
+        if (data) {
+          console.log(data);
+        }
+        if (data.order) {
+          window.location.assign('/orders')
+        }
+      } catch (err) {
+        console.log(err);
+      }
+    })
+  </script>
+</body>
+
+</html>

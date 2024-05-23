@@ -1,0 +1,156 @@
+@font-face {
+    font-family: 'Dem';
+    src: url('../Fonts/Dosis/Dosis-VariableFont_wght.ttf');
+}
+
+* {
+    font-family: Dem;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.back {
+    background-color: #0a2351;
+    background-image: url(../Images/Exclusion\ 1.png);
+    background-repeat: no-repeat;
+    background-position: 80% 50%;
+    background-size: 15%;
+    height: 45%;
+    width: 40%;
+    border: 0.1px solid #0a2351;
+    overflow: hidden;
+    box-shadow: 7px 7px 15px gray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    position: relative;
+}
+
+.form {
+    background-color: white;
+    height: 100%;
+    width: 100%;
+}
+
+form {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+input#b1{
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid black;
+    margin: 6% 0;
+    outline: none;
+    padding: 2%;
+}
+textarea{
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid black;
+    margin: 6% 0;
+    outline: none;
+    padding: 2%;
+}
+input#names{
+    border: none;
+    border-bottom: 1px solid black;
+    margin: 6% 0 0 0;
+    outline: none;
+    padding: 2%;
+    width: 49.56%;
+}
+
+button {
+    width: 7%;
+    background-color: #FF4433;
+    border: 0;
+    height: 40px;
+    cursor: pointer;
+    color: white;
+    transition: 0.3s ease;
+    border-radius: 10px;
+    position: absolute;
+    bottom: 2%;
+    right: 1%;
+}
+
+button:hover {
+    background-color: #db3c2e;
+}
+
+button img{
+    height: auto;
+    width: 50%;
+}
+.other {
+    overflow: hidden;
+    height: 77.5%;
+    width: 60%;
+    margin-top: 5%;
+    padding: 0;
+}
+
+a {
+    font-size: 0.8rem;
+    color: #0a2351;
+    text-decoration: none;
+    transition: .4s ease;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+img {
+    width: 70%;
+}
+
+.file {
+    height: 70%;
+    width: 30%;
+    float: left;
+    margin: 1.7% 2% 0 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+input#file {
+    display: none;
+}
+
+label {
+    cursor: pointer;
+    display: flex;
+    height: 89%;
+    justify-content: center;
+    align-items: center;
+    background-color:#0a2351;
+    object-fit: contain;
+    transition: .3s ease;
+    border-radius: 10px;
+}
+label:hover {
+    background-color: #071836;
+}
+h1{
+    position: absolute;
+    left: 4%;
+    top: 5%;
+    color: #0a2351;
+}

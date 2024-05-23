@@ -1,0 +1,16 @@
+[{
+  "_id": {
+    "$oid": "6622542cc3debc59d3f3d2c9"
+  },
+  "email": "test@test.com",
+  "password": "$2b$10$GhweX3AePvnEnwlRN20U8.mGGHzxtVERfCNtqmNcSnliWBZYToksm",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "662255af50db479234699856"
+  },
+  "email": "chlomi2006@gmail.com",
+  "password": "$2b$10$GhweX3AePvnEnwlRN20U8.mGGHzxtVERfCNtqmNcSnliWBZYToksm",
+  "__v": 0
+}]

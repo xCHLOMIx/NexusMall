@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Styles/orders.css">
+    <title>NexusMall</title>
+</head>
+<body>
+    <nav>
+        <div class="logo"><a href="/"><img src="Images/Exclusion 1.png" alt="" id="logo"></a></div>
+        <div class="links">
+                <a href="/home"><img src="Icons/home.png" id="other"></a>
+                <a href="/products"><img src="Icons/browse.png" id="other"></a>
+                <a href="/orders"><img src="Icons/account.png" id="home"></a>
+        </div>
+        <div class="logout"><a href="/logout"><img src="Icons/logout.png" id="logout"></a></div>
+    </nav>
+    <div class="content">
+        <div class="title">
+            <font id="one">My Orders</font>
+        </div>
+        <div class="display">
+            <div class="orders">
+                <% if (orders.length > 0){ 
+                  orders.forEach(order => { %>
+                  <div class="order">
+                        <div class="desc">
+                          <b>Product:</b> <font><%= order.productName%></font><br><br>
+                          <b>Ordered by:</b> <font><%= username %></font><br><br>
+                          <b>Date:</b> <font><%= order.date %></font><br><br>
+                          <b>Status:</b> <font><%= order.status  %></font>
+                        </div>
+                  </div>   
+                <% })} else { %>
+                  <div class="reply">
+                    <h1 id="Reply">No ORDERS Mate!</h1>
+                  </div>
+                <% }%>
+        </div>
+    </div>
+</body>
+</html>

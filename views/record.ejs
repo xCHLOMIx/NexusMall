@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Record Product</title>
+        <link rel="stylesheet" href="Styles/record.css">
+    </head>
+    <body>
+        <div class="back">
+            <div class="form">
+                <h1>Product Details</h1>
+                <form action="/save" method="post" enctype="multipart/form-data">
+                    <div class="file">
+                        <input type="file" name="productImage" id="file">
+                        <label for="file"><img src="Icons/img.png"><br></label><br>
+                    </div>
+                    <div class="other">
+                        <input type="text" placeholder="Product Name" name="productName" id="b1"><br>
+                        <input type="number" placeholder="Unit Price" name="unitPrice" id="names">
+                        <input type="number" placeholder="Product Quantity" name="productQuantity" id="names"><br>
+                        <textarea name="productDescription" id="" cols="30" rows="4" placeholder="Product Description..."></textarea>
+                        <button type="submit"><img src="Icons/add.png" alt=""></button>
+                    </div><br>
+                </form>
+            </div>
+        </div>
+        <script>
+            const image = document.querySelector("img")
+            input = document.querySelector("input")
+
+            input.addEventListener("change", () => {
+                image.src = URL.createObjectURL(input.files[0])
+            })
+        </script>
+    </body> 
+</html>

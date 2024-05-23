@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Styles/admin-products.css">
+    <title>NexusMall</title>
+</head>
+
+<body>
+    <nav>
+        <div class="logo"><img src="Images/Exclusion 1.png" alt="" id="logo"></div>
+        <div class="links">
+            <a href="/dashboard"><img src="Icons/dashboard.png" id="other"></a>
+            <a href="/users"><img src="Icons/users.png" id="other"></a>
+            <a href="/products-admin"><img src="Icons/box.png" id="home"></a>
+            <a href="/admin-orders"><img src="Icons/clipboard.png" id="other"></a>
+        </div>
+        <div class="logout"><a href="/logout"><img src="Icons/logout.png" id="logout"></a></div>
+    </nav>
+    <div class="content">
+        <h1 id="head">In Stock:</h1>
+        <a href="/record"><button id="b1"><img src="Icons/add.png" alt=""></button></a>
+        <div class="product">
+            <% for( let i=0; i < products.length; i++) {%>
+                <div class="showcase">
+                    <div class="img"><img
+                            src="data:<%= products[i].image.contentType %>;base64,<%= products[i].image.data.toString('base64') %>"
+                            alt="">
+                    </div>
+                    <div class="text">
+                        <h1>
+                            <%= products[i].productName %>
+                        </h1><br>
+                        <b>$<%= products[i].unitPrice %></b><br><br>
+                        <span>Quantity: </span><b><%= products[i].productQuantity%></b>
+                        <p id="desc">
+                            <%= products[i].productDescription %>
+                        </p>
+                        
+                        <button class="trashcan" data-doc="<%= products[i]._id %>"><img src="Icons/delete.png" alt="DELETE"></button>
+    
+                    </div>
+                </div>
+            <% }; %>
+        </div>
+    </div>
+    </div>
+    <script>
+      const trashcans = document.querySelectorAll('.trashcan');
+
+      trashcans.forEach(trashcan => {
+        trashcan.addEventListener('click', async function(e) {
+          let confirmDeletion = window.confirm('Do you want to DELETE this product ?')
+          
+          const productId = this.getAttribute('data-doc');
+          if (confirmDeletion) {
+            try {
+            const res = await fetch('/products-admin', {
+              method: 'DELETE',
+              body: JSON.stringify({
+                id: productId.toString()
+              }),
+              headers: {
+                'Content-Type': 'application/json'
+              },
+            });
+            const data = await res.json();
+            if (data) {
+              console.log(data);
+            }
+            if (data.result) {
+              window.location.assign('/products-admin');
+            }
+          } catch (err) {
+            console.log(err);
+          }
+          }
+          
+        })
+      });
+</script>
+</body>
+
+</html>

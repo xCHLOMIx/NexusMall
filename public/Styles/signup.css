@@ -1,0 +1,123 @@
+@font-face {
+    font-family: 'Dem';
+    src: url('../Fonts/Dosis/Dosis-VariableFont_wght.ttf');
+    }  
+*{
+    font-family: Dem;
+}
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.error{
+    color: red;
+    font-size: 11px;
+}
+.back {
+    background-color: #0a2351;
+    background-image: url(../Images/Exclusion\ 1.png);
+    background-repeat: no-repeat;
+    background-position-x: 80%;
+    background-position-y: 50%;
+    background-size: 15%;
+    height: 60%;
+    width: 45%;
+    border-radius: 10px;
+    border: 0.1px solid #0a2351;
+    box-shadow: 7px 7px 15px rgb(224, 224, 224);
+    transition: 0.3s ease;
+}
+
+.form {
+    border-radius: 10px;
+    background-color: white;
+    margin-top: 1%;
+    margin-left: 1%;
+    height: 97%;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+    pointer-events: auto;
+    transition: opacity 0.3s ease, pointer-events 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+img{
+    width: 9%;
+    height: auto;
+    position: absolute;
+    left: 1%;
+    top: 1%;
+    opacity: 0%;
+    transition: .3s;
+    cursor: pointer;
+}
+#Form1 {
+    position: absolute;
+    left: 15%;
+    top: 27.5%;
+}
+#Form2 {
+    position: absolute;
+    left: 100%;
+    top: 27.5%;
+}
+
+form {
+    transition: 0.3s ease;
+    overflow: hidden;
+}
+section{
+    height: 100%;
+    margin-top: -15%;
+    overflow: hidden;
+    width: 70%;
+    transition: 0.3s ease;
+}
+input {
+    height: 30px;
+    width: 100%;
+    border: none;
+    border-bottom: 2px solid 
+    ;
+    margin-bottom: 5%;
+    outline: none;
+    padding-left: 2%;
+    font-size: 0.7rem;
+    background-color: transparent;
+}
+
+button {
+    width: 100%;
+    background-color: #FF4433;
+    border: 0;
+    height: 35px;
+    border-radius: 10px;
+    cursor: pointer;
+    color: white;
+    transition: 0.3s ease;
+    font-size: 0.7rem;
+}
+
+button:hover {
+    background-color: #db3c2e;
+}
+font{
+    font-weight: Dem;
+}
+a{
+    font-size: x-small;
+    color: #0a2351;
+    text-decoration: none;
+    transition: .4s ease;
+}
+a:hover{
+    text-decoration: underline;
+}
